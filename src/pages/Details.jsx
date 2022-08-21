@@ -1,49 +1,31 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "../components/Header";
+import Load from "../components/Load";
 import { useUsers } from "../hooks/useUsers";
 
 export default function Details() {
   const { id } = useParams();
 
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
   const { data: res_users, isFetching } = useUsers(`/users?id=${id}`);
+  const w = getRandomInt(1, 50);
 
   return (
     <>
       <Header />
 
-      {isFetching && (
-        <div className="m-8 flex items-center justify-center">
-          <span className="inline-flex items-center px-4 py-2 font-semibold leading-6 shadow rounded-md  bg-[#0ea5e9] hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed">
-            <svg
-              class="animate-spin -ml-2 mr-6 h-10 w-10 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"
-              ></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-            Carregando
-          </span>
-        </div>
-      )}
+      {isFetching && <Load />}
 
       <ul className="ml-4 mt-10">
         <div class="flex p-6 font-mono">
           <div class="flex-none w-48 mb-10 relative z-10 before:absolute before:top-1 before:left-1 before:w-full before:h-full before:bg-teal-400">
             <img
-              src="https://randomuser.me/api/portraits/women/47.jpg"
+              src={`https://randomuser.me/api/portraits/women/${w}.jpg`}
               class="absolute z-10 inset-0 w-full h-full object-cover rounded-lg"
             />
           </div>
