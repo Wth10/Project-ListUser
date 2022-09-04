@@ -33,14 +33,6 @@ export default function Header() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="profile"
-                  className="font-medium text-slate-300 hover:text-white opacity-80 hover:opacity-100"
-                >
-                  Profile
-                </Link>
-              </li>
             </ul>
           </nav>
         </div>
