@@ -43,7 +43,7 @@ export default function Table() {
                   return (
                     <tr
                       key={user.id}
-                      class="h-16 w-full text-sm leading-4 hover:bg-slate-500"
+                      class="h-16 w-full text-sm leading-4 hover:bg-slate-500 "
                     >
                       <td class="pl-6 pr-32">
                         {user.name} {user.username}
@@ -66,7 +66,7 @@ export default function Table() {
             </table>
           </div>
 
-          <div class="w-96 md:hidden shadow rounded ">
+          <div class="w-96 md:hidden shadow rounded">
             {data?.map((user) => {
               return (
                 <div class="w-full p-6 flex justify-start flex-col space-y-8 ">
