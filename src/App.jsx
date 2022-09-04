@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
@@ -7,15 +7,13 @@ import Details from "./pages/Details";
 
 export default function Home() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/*" element={<Erro404 />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/details/:Id" element={<Details />} />
+        <Route path="/*" element={<Erro404 />} />
+      </Route>
+    </Routes>
   );
 }
